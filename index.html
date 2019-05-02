@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="A deep learning primer, inspired by the Udacity Nanodegree program">
+		<meta name="author" content="Daniele Pestilli">
+
+		<title>Intro to Deep Learning</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Section -->
+				<section>
+					<h1>
+						Intro to Deep Learning
+					</h1>
+					<img src="./images/neurons.png" alt="Neurons" class="no_border no_box_shadow">
+				</section>
+				<!-- Section -->
+				<section data-transition="zoom">
+						<h2>What is Deep Learning?</h2>
+						<p>
+							Deep Learning is a subfield of Machine Learning concerned with algorithms inspired by the structure and function of the brain called Artificial Neural Networks.
+						</p>
+						<p>
+							In a nutshell, the neural network aims at learning features from higher levels of the feature hierarchy formed by the composition of lower level features.
+						</p>
+					</section>
+				<!-- Section -->
+				<section data-transition="slide-in fade-out">
+					<h2>What is Deep Learning used for?</h2>
+					<p>
+						Pretty much everything. Recent applications include things like beating humans in games such as Go or Jeopardy, detecting spam in emails, forecasting stock prices, recognizing images in a picture and even diagnosing illnesses. Oh and of course, it's at the core of self-driving cars.
+					</p>
+				</section>
+
+				<!-- Section -->
+				<section data-transition="zoom">
+					<h2>What is at the heart of Deep Learning?</h2>
+					<p>Neural Networks</p>
+					<p>
+						Neural Networks vaguely mimic the process of how the brain operates, with neurons that fire bits of information.
+					</p>
+					<img src="./images/neuron.png" alt="Neuron" class="no_border no_box_shadow">
+				</section>
+
+				<section>
+					<small>
+						<ol>
+							<li>Incoming connections: every neuron receives a set of inputs, either from the input layer (the equivalent of the sensory input) or from other neurons in previous layers in the network.</li>
+							<li>The linear calculation and the activation functions — these “sum up” the inputs and make a non linear decision whether to activate the neuron and fire.</li>
+							<li>The output connections — these deliver the activation signal of the neuron to the next layer in the network.</li>
+						</ol>
+					</small>
+					<img src="./images/neural_network.png" alt="Neural Network" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section data-transition="slide-in fade-out">
+					<h2>Scary right?</h2>
+					<p>
+						<small>While the high level and conceptual thinking of artificial neural networks is inspired by neurons and neural networks in the brain, the ML implementation of these concepts has diverged significantly from how the brain works. Moreover, as the field of ML progressed over the years and new complex ideas and techniques have been developed, that link has further weakened.</small>
+					</p>
+					<img src="./images/ai_robot.png" alt="AI Robot" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Basics</h2>
+					<small>
+							<p>Suppose we want to predict whether a student will enter university or not based on their grades and test scores.</p>
+							<p>The goal of the algorithm is to find a boundary line that keeps most of the blue points above it, and most red points below it.</p>
+					</small>
+					<img src="./images/student_acceptance.png" alt="Student Acceptance" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Higher Dimensions</h2>
+					<small>
+						<p>Now suppose that instead of just grades and test scores, we want to make a similar prediction but also take into consideration the student's class rank.</p>
+						<p>We'll now be working in three dimentions.</p>
+					</small>
+					<img src="./images/higher_dimensions.png" alt="Higher Dimensions" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<small>
+						<p>Now we have three axes, <strong>x1</strong> for the test, <strong>x2</strong> for the grades and <strong>x3</strong> for the class ranking.</p>
+						<p>The equation can be simplified to Wx + b = 0</p>
+						<p>Our prediction (y-hat) should still tell us if the student is above this division plane (accepted) or below it (rejected).</p>
+					</small>
+					<img src="./images/three_dimension_acceptance.png" alt="Three Dimension Acceptance" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Hyperplanes</h2>
+					<small>
+						<p>The interesting thing is that even if we have n-dimensions, the equation remains the same.</p>
+						<p>Our prediction (y-hat) should still tell us if the student is above this division plane (accepted) or below it (rejected).</p>
+					</small>
+					<img src="./images/hyperplane.png" alt="Hyperplane" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Perceptrons</h2>
+					<small>
+						<p>Perceptrons are the building blocks of neural networks. They are just the encoding of our equation into a small graph. We fit our data and boundary line inside a node. Then we add small nodes for the inputs, which are tests and grades.</p>
+					</small>
+					<img src="./images/perceptron.png" alt="Perceptron" class="no_border no_box_shadow">
+				</section>
+
+				<section>
+					<small>
+						<p>The perceptron simply plots the points provided by the inputs and checks whether the result is a pass or a fail.</p>
+					</small>
+					<img src="./images/perceptron_2.png" alt="Perceptron 2" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Step Function</h2>
+					<small>
+						<p>Notice how the output is either a Yes or a No. To come up with this result we use what is called a Step Function. There are other functions that can be applied to the output but let's not get into that now.</p>
+					</small>
+					<img src="./images/step_function.png" alt="Step Function" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section data-transition="slide-in fade-out">
+					<h2>Perceptron Trick</h2>
+					<p>
+						<small>
+							How do we find the line that separates the red points from the blue points in the best possible way? First we need to plot and classify our points. Then we plot a line and check how badly it performs the classification of the given points.
+						</small>
+					</p>
+					<img src="./images/split_data.png" alt="Split Data" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>
+							Once we've found how good or badly the line has performed, we can either move it towards or away from our point. We can use a small Learning Rate so that the line doesn't move too drastically. We then multiply our original numbers by the learning rate and receive a new equation, which will shift the line.
+							That's the trick we will use repeatedly for the perceptron algorithm.
+						</small>
+					</p>
+					<img src="./images/line_modification.png" alt="Line Modification" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Non-Linear Regions</h2>
+					<p>
+						<small>
+							Say our data is a bit messier and cannot be easily separated by a line. In that case we will need a model that can still properly separate students who pass from those who fail, but the line will need to be more complex to make up for the additional criteria.
+						</small>
+					</p>
+					<img src="./images/non_linear_regions.png" alt="Non-Linear Regions" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Gradient Descent</h2>
+					<p>
+						<small>
+							Say we're on a mountain and want to descend in the fastest way possible. In an ideal world, we would look around us and pick the path that would allow us to desced the fastest in one direction, and then we'd repeat the process over and over. This is called gradient descent.
+						</small>
+					</p>
+					<img src="./images/error_function.png" alt="Error Function" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Log-loss error</h2>
+					<p>
+						<small>
+							We can use a similar method to detect the error in our model, and then gradually shift the line in one direction or the other. We can also assign larger weights to the points that are misclassified (similar to how we'd pick a direciton to step towards on a mountain.) This will allow the line to move more rapidly towards points that are misclassified. The goal is to ensure the sum of our errors is as small as possible.
+						</small>
+					</p>
+					<img src="./images/log_loss_error.png" alt="Log-loss error" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Predictions</h2>
+					<p>
+						<small>
+							If we want the line to move closer to one point and not the other, we can't have the points simply tell us yes or no. They need to tell us with how much confidence they are in the right zone. In other words, we need a probability of their correctness. The probability is a function of the point's distance from the line.
+						</small>
+					</p>
+					<img src="./images/predictions.png" alt="Predictions" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Sigmoid Activation Function</h2>
+					<p>
+						<small>
+							The sigmoid function will yield numbers close to 1 for large positive numbers, and numbers close to 0 for large negative numbers.
+						</small>
+					</p>
+					<img src="./images/sigmoid_activation_function.png" alt="Sigmoid Activation Function" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>
+							Our new perceptron takes the inputs, multiplies them by the weights in the edges, then adds the results. It then applies the sigmoid function.
+							Whereas our previous step function told us whether a student got accepted or rejected, our sigmoid function will tell us the probability with which the student gets accepted.
+						</small>
+					</p>
+					<img src="./images/perceptron_probability.png" alt="Perceptron Probability" class="no_border no_box_shadow">
+				</section>
+
+
+				<section>
+					<h2>Thank you!</h2>
+					<img width="50%" src="./svg/ruby_end_logo.svg" srcset="./svg/ruby_end_logo.svg" alt="Ruby end logo" class="no_border no_box_shadow">
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				slideNumber: 'c',
+				width: 1024,
+				height: 768,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
