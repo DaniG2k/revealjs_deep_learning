@@ -41,15 +41,18 @@
 							Deep Learning is a subfield of Machine Learning concerned with algorithms inspired by the structure and function of the brain called Artificial Neural Networks.
 						</p>
 						<p>
-							In a nutshell, the neural network aims at learning features from higher levels of the feature hierarchy formed by the composition of lower level features.
+							In a nutshell, the neural network aims at learning higher level features formed by the composition of lower level features.
 						</p>
 					</section>
 				<!-- Section -->
 				<section data-transition="slide-in fade-out">
 					<h2>What is Deep Learning used for?</h2>
 					<p>
-						Pretty much everything. Recent applications include things like beating humans in games such as Go or Jeopardy, detecting spam in emails, forecasting stock prices, recognizing images in a picture and even diagnosing illnesses. Oh and of course, it's at the core of self-driving cars.
+						<small>
+							Pretty much everything. Recent applications include things like beating humans in games such as Go or Jeopardy, detecting spam in emails, forecasting stock prices, recognizing images in a picture and even diagnosing illnesses. Oh and of course, it's at the core of self-driving cars.
+						</small>
 					</p>
+					<img src="./images/self_driving_car.png" alt="Self-driving Car" class="no_border no_box_shadow">
 				</section>
 
 				<!-- Section -->
@@ -155,7 +158,7 @@
 							How do we find the line that separates the red points from the blue points in the best possible way? First we need to plot and classify our points. Then we plot a line and check how badly it performs the classification of the given points.
 						</small>
 					</p>
-					<img src="./images/split_data.png" alt="Split Data" class="no_border no_box_shadow">
+					<img src="./images/split_data.png" style="height: 515px;" alt="Split Data" class="no_border no_box_shadow">
 				</section>
 
 				<!-- Section -->
@@ -167,17 +170,6 @@
 						</small>
 					</p>
 					<img src="./images/line_modification.png" alt="Line Modification" class="no_border no_box_shadow">
-				</section>
-
-				<!-- Section -->
-				<section>
-					<h2>Non-Linear Regions</h2>
-					<p>
-						<small>
-							Say our data is a bit messier and cannot be easily separated by a line. In that case we will need a model that can still properly separate students who pass from those who fail, but the line will need to be more complex to make up for the additional criteria.
-						</small>
-					</p>
-					<img src="./images/non_linear_regions.png" alt="Non-Linear Regions" class="no_border no_box_shadow">
 				</section>
 
 				<!-- Section -->
@@ -208,9 +200,22 @@
 					<p>
 						<small>
 							If we want the line to move closer to one point and not the other, we can't have the points simply tell us yes or no. They need to tell us with how much confidence they are in the right zone. In other words, we need a probability of their correctness. The probability is a function of the point's distance from the line.
+							We then calculate the correctness of our model with something called <strong>cross-entropy</strong> (which I won't get into detail here). Cross-entropy is basically the sum of the negative logrithms of the probabilities of the points being the right color.
 						</small>
 					</p>
 					<img src="./images/predictions.png" alt="Predictions" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>
+							If the error of our function is given by E, then the gradient of E is given by the vector sum of the partial derivates of E with respect to w1 and w2.
+							The gradient tells us the direction we want to move if we want to increase our error function the most.
+							So if we take the negative of the gradient, this will tell us how to decrease the error function the most.
+						</small>
+					</p>
+					<img src="./images/gradient_descent.png" alt="Gradient Descent" class="no_border no_box_shadow">
 				</section>
 
 				<!-- Section -->
@@ -233,6 +238,82 @@
 						</small>
 					</p>
 					<img src="./images/perceptron_probability.png" alt="Perceptron Probability" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<h2>Non-Linear Regions</h2>
+					<p>
+						<small>
+							Say our data is a bit messier and cannot be easily separated by a line. In that case we will need a model that can still properly separate students who pass from those who fail, but the line will need to be more complex to make up for the additional criteria.
+							How do we create such non-linear models?
+						</small>
+					</p>
+					<img src="./images/non_linear_regions.png" alt="Non-Linear Regions" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>
+							The trick is to combine two linear models into a non-linear model. We then apply the sigmoid function to every point which will give us a curved line.
+						</small>
+					</p>
+					<img src="./images/non_linear_regions_2.png" alt="Non-Linear Regions" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>
+							This is precisely what happens in the neural network.
+						</small>
+					</p>
+					<img src="./images/neural_net.png" alt="Neural Net" class="no_border no_box_shadow">
+				</section>
+
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>
+							What happens if we combine a two-node input to a three-node hidden layer? We will simply get a triangular shaped output layer.
+						</small>
+					</p>
+					<img src="./images/3_node_hidden.png" alt="3 node hidden layer" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>What happens if we have 3 input nodes?</small>
+					</p>
+					<p>
+						<small>That simply means our output will be a three-dimensional layer. In general, if we have n-nodes as an input, our output will be in n-dimensional space.</small>
+					</p>
+					<img src="./images/3_input_layers.png" alt="3 input layers" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>What if our output layer has more nodes? In that case, we will get a multi-class classification model.</small>
+					</p>
+					<img src="./images/deep_neural_net_classification.png" alt="Deep Neural Net Classification" class="no_border no_box_shadow">
+				</section>
+
+				<!-- Section -->
+				<section>
+					<p>
+						<small>Finally, what if we have more hidden layers? In that case, we have what's called a <strong>Deep Neural Network</strong>.</small>
+					</p>
+					<p>
+						<small>
+							Our linear models combine to create non-linear models, and then those combine to create even more non-linear models.
+							Lots of hidden nodes can create highly complex models. This is where the magic of neural networks happens.
+						</small>
+					</p>
+					<img src="./images/multiple_hidden_layers.png" alt="Multiple Hidden Layers" class="no_border no_box_shadow">
 				</section>
 
 
