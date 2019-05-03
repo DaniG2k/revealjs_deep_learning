@@ -96,7 +96,7 @@
 				</section>
 
 				<!-- Section -->
-				<section>
+				<section data-transition="zoom">
 					<h2>Higher Dimensions</h2>
 					<small>
 						<p>Now suppose that instead of just grades and test scores, we want to make a similar prediction but also take into consideration the student's class rank.</p>
@@ -126,7 +126,7 @@
 				</section>
 
 				<!-- Section -->
-				<section>
+				<section data-transition="concave">
 					<h2>Perceptrons</h2>
 					<small>
 						<p>Perceptrons are the building blocks of neural networks. They are just the encoding of our equation into a small graph. We fit our data and boundary line inside a node. Then we add small nodes for the inputs, which are tests and grades.</p>
@@ -184,7 +184,7 @@
 				</section>
 
 				<!-- Section -->
-				<section>
+				<section data-transition="convex">
 					<h2>Log-loss error</h2>
 					<p>
 						<small>
@@ -219,7 +219,7 @@
 				</section>
 
 				<!-- Section -->
-				<section>
+				<section data-transition="slide">
 					<h2>Sigmoid Activation Function</h2>
 					<p>
 						<small>
@@ -241,7 +241,7 @@
 				</section>
 
 				<!-- Section -->
-				<section>
+				<section data-transition="zoom">
 					<h2>Non-Linear Regions</h2>
 					<p>
 						<small>
@@ -263,7 +263,7 @@
 				</section>
 
 				<!-- Section -->
-				<section>
+				<section data-transition="convex">
 					<p>
 						<small>
 							This is precisely what happens in the neural network.
@@ -317,7 +317,7 @@
 				</section>
 
 				<!-- Section -->
-				<section>
+				<section data-transition="concave">
 					<h2>Feedforward</h2>
 					<p>
 						<small>This process of taking inputs, combining their weights to obtain a non-linear model, then combining those to produce a non-linear output is called feedforward.</small>
@@ -329,15 +329,35 @@
 				<section>
 					<h2>Backpropagation</h2>
 					<p>
-						<small>Once we've done a feedforward operation, we first compare the output of the model with the desired output. We then calculate the error. Once we have that, we run the feedforward operation backwards (<strong>backpropagation</strong>) to spread the error to each of the weights. Then we use this to update the weights, and get a better model. We repeat this process until we are happy with the model.</small>
+						<small>
+							Once we've done a feedforward operation, we first compare the output of the model with the desired output. We then calculate the error. Once we have that, we run the feedforward operation backwards (<strong>backpropagation</strong>) to spread the error to each of the weights.
+							Then we use this to update the weights and get a better model.
+							We repeat this process until we are happy with the model.
+							In general, feed forwarding is just composing a bunch of functions, and backpropagation is taking the derivative at each piece to update our weights.
+						</small>
 					</p>
-					<video height="500" controls>
+					<video height="450" controls>
 						<source src="./images/backpropagation.webm" type="video/webm">
 					</video>
 				</section>
 
-
+				<!-- Section -->
 				<section>
+					<h2>To infinity and beyond</h2>
+					<p>
+						<small>
+							These are just the basics of Deep Learning. There are many more complex models that have been developed in recent years including:
+							<ul>
+								<li><strong>Convolutional Neural Networks</strong> - a class of deep neural networks, most commonly applied to analyzing visual imagery.</li>
+								<li><strong>Recurrent Neural Networks</strong> - a class of deep neural networks that allows exhibiting temporal dynamic behavior. Unlike feedforward neural networks, RNNs can use their internal state (memory) to process sequences of inputs.</li>
+								<li><strong>Generative Adverserial Networks</strong> - where multiple neural networks contest with each other in a zero-sum game framework. This technique can generate text, photographs or other inputs that look at least superficially authentic to human observers.</li>
+							</ul>
+						</small>
+					</p>
+				</section>
+
+
+				<section data-transition="convex">
 					<h2>Thank you!</h2>
 					<img width="50%" src="./svg/ruby_end_logo.svg" srcset="./svg/ruby_end_logo.svg" alt="Ruby end logo" class="no_border no_box_shadow">
 				</section>
