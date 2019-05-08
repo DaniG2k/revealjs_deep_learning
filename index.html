@@ -38,18 +38,19 @@
 				<section data-transition="zoom">
 						<h2>What is Deep Learning?</h2>
 						<p>
-							Deep Learning is a subfield of Machine Learning concerned with algorithms inspired by the structure and function of the brain called Artificial Neural Networks.
+							<small>Deep Learning is a subfield of Machine Learning concerned with algorithms inspired by the structure and function of the brain called Artificial Neural Networks.</small>
 						</p>
 						<p>
-							In a nutshell, the neural network aims at learning higher level features formed by the composition of lower level features.
+							<small>In a nutshell, the neural network aims at learning higher level features formed by the composition of lower level features of a given system.</small>
 						</p>
+						<img src="./images/low_to_high_level_features.png" alt="Low to High-level features" class="no_border no_box_shadow">
 					</section>
 				<!-- Section -->
 				<section data-transition="slide-in fade-out">
 					<h2>What is Deep Learning used for?</h2>
 					<p>
 						<small>
-							Pretty much everything. Recent applications include things like beating humans in games such as Go or Jeopardy, detecting spam in emails, forecasting stock prices, recognizing images in a picture and even diagnosing illnesses. Oh and of course, it's at the core of self-driving cars.
+							Pretty much everything. Recent applications include things like beating humans in games such as Go or Jeopardy, detecting spam in emails, natural language processing, forecasting stock prices, recognizing images in a picture and even diagnosing illnesses. And of course, it's at the core of self-driving cars.
 						</small>
 					</p>
 					<img src="./images/self_driving_car.png" alt="Self-driving Car" class="no_border no_box_shadow">
@@ -90,7 +91,7 @@
 					<h2>Basics</h2>
 					<small>
 							<p>Suppose we want to predict whether a student will enter university or not based on their grades and test scores.</p>
-							<p>The goal of the algorithm is to find a boundary line that keeps most of the blue points above it, and most red points below it.</p>
+							<p>We'd need some algorithm that finds a boundary line that keeps most of the blue points above it, and most red points below it. Our neural network can help us with this task.</p>
 					</small>
 					<img src="./images/student_acceptance.png" alt="Student Acceptance" class="no_border no_box_shadow">
 				</section>
@@ -100,7 +101,7 @@
 					<h2>Higher Dimensions</h2>
 					<small>
 						<p>Now suppose that instead of just grades and test scores, we want to make a similar prediction but also take into consideration the student's class rank.</p>
-						<p>We'll now be working in three dimentions.</p>
+						<p>We'll now be working in three dimensions.</p>
 					</small>
 					<img src="./images/higher_dimensions.png" alt="Higher Dimensions" class="no_border no_box_shadow">
 				</section>
@@ -145,7 +146,7 @@
 				<section>
 					<h2>Step Function</h2>
 					<small>
-						<p>Notice how the output is either a Yes or a No. To come up with this result we use what is called a Step Function. There are other functions that can be applied to the output but let's not get into that now.</p>
+						<p>Notice how the output is either a Yes or a No. To come up with this result we use what is called a Step Function. There are other functions that can be applied to the output which I will talk about shortly.</p>
 					</small>
 					<img src="./images/step_function.png" alt="Step Function" class="no_border no_box_shadow">
 				</section>
@@ -177,10 +178,10 @@
 					<h2>Gradient Descent</h2>
 					<p>
 						<small>
-							Say we're on a mountain and want to descend in the fastest way possible. In an ideal world, we would look around us and pick the path that would allow us to desced the fastest in one direction, and then we'd repeat the process over and over. This is called gradient descent.
+							Say we're on a mountain-top and want to descend in the fastest way possible. In an ideal world, we would look around us and pick the path that would allow us to descend the fastest in one direction, and then we'd repeat the process over and over. This is called gradient descent.
 						</small>
 					</p>
-					<img src="./images/error_function.png" alt="Error Function" class="no_border no_box_shadow">
+					<img src="./images/gradient_descent_heat.png" alt="Error Function" class="no_border no_box_shadow">
 				</section>
 
 				<!-- Section -->
@@ -188,7 +189,7 @@
 					<h2>Log-loss error</h2>
 					<p>
 						<small>
-							We can use a similar method to detect the error in our model, and then gradually shift the line in one direction or the other. We can also assign larger weights to the points that are misclassified (similar to how we'd pick a direciton to step towards on a mountain.) This will allow the line to move more rapidly towards points that are misclassified. The goal is to ensure the sum of our errors is as small as possible.
+							We can use a similar method to detect the error in our model, and then gradually shift the line in one direction or the other. We can also assign larger weights to the points that are misclassified (similar to how we'd pick a direction to step towards on a mountain.) This will allow the line to move more rapidly towards points that are misclassified. The goal is to ensure the sum of our errors is as small as possible.
 						</small>
 					</p>
 					<img src="./images/log_loss_error.png" alt="Log-loss error" class="no_border no_box_shadow">
@@ -200,7 +201,7 @@
 					<p>
 						<small>
 							If we want the line to move closer to one point and not the other, we can't have the points simply tell us yes or no. They need to tell us with how much confidence they are in the right zone. In other words, we need a probability of their correctness. The probability is a function of the point's distance from the line.
-							We then calculate the correctness of our model with something called <strong>cross-entropy</strong> (which I won't get into detail here). Cross-entropy is basically the sum of the negative logrithms of the probabilities of the points being the right color.
+							We then calculate the correctness of our model with something called <strong>cross-entropy</strong> (which I won't get into detail here). Cross-entropy is basically the sum of the negative logarithms of the probabilities of the points being the right color.
 						</small>
 					</p>
 					<img src="./images/predictions.png" alt="Predictions" class="no_border no_box_shadow">
@@ -210,7 +211,7 @@
 				<section>
 					<p>
 						<small>
-							If the error of our function is given by E, then the gradient of E is given by the vector sum of the partial derivates of E with respect to w1 and w2.
+							If the error of our function is given by E, then the gradient of E is given by the vector sum of the partial derivatives of E with respect to w1 and w2.
 							The gradient tells us the direction we want to move if we want to increase our error function the most.
 							So if we take the negative of the gradient, this will tell us how to decrease the error function the most.
 						</small>
@@ -245,7 +246,7 @@
 					<h2>Non-Linear Regions</h2>
 					<p>
 						<small>
-							Say our data is a bit messier and cannot be easily separated by a line. In that case we will need a model that can still properly separate students who pass from those who fail, but the line will need to be more complex to make up for the additional criteria.
+							Consider what would happen if our data were a bit messier, and that we couldn't simply separate the dots with a straight line. In that case we would need a model that can still properly separate students who pass from those who fail, but the line would need to be more complex to make up for the additional criteria.
 							How do we create such non-linear models?
 						</small>
 					</p>
@@ -343,12 +344,23 @@
 
 				<!-- Section -->
 				<section>
-					<h2>To infinity and beyond</h2>
 					<p>
 						<small>
-							These are just the basics of Deep Learning. There are many more complex models that have been developed in recent years including...
+							These are just the basics of Deep Learning. Many techniques used by Deep Learning have been around for decades, such as the algorithms to recognize hand-written postal codes in the 90s.
+							The use of Deep Learning has surged over the past five years due to 3 factors:
 						</small>
 					</p>
+					<ol>
+						<li><small>Deep Learning methods have obtained a higher accuracy than people in classifying images.</small></li>
+						<li><small>Modern GPUs allow us to train complex networks in less time than ever before.</small></li>
+						<li><small>Massive amounts of data required for Deep Learning has become accessible.</small></li>
+					</ol>
+					<p>
+						<small>
+							There are many more complex models that have been developed in recent years including...
+						</small>
+					</p>
+					<img style="height: 370px;" src="./images/melanoma.png" alt="Melanoma" class="no_border no_box_shadow">
 				</section>
 
 				<section>
@@ -359,7 +371,7 @@
 
 				<section>
 					<h2>Recurrent Neural Networks</h2>
-					<p>A class of deep neural networks that allows exhibiting temporal dynamic behavior. Unlike feedforward neural networks, RNNs can use their internal state (memory) to process sequences of inputs.</p>
+					<p>A class of deep neural networks that allows exhibiting temporal dynamic behavior. Unlike feedforward neural networks, RNNs can use their internal state (memory) to process sequences of inputs. This technique is especially good for audio (eg. Apple's Siri or Amazon's Alexa).</p>
 					<img src="./images/RNN.jpg" alt="RNNs" class="no_border no_box_shadow">
 				</section>
 
